@@ -1,4 +1,4 @@
-/* .wrapper {
+.wrapper {
   background: rgb(247, 247, 247);
   height: 100%;
   display: flex;
@@ -7,4 +7,4 @@
   align-content: flex-start;
   overflow: auto;
   padding-bottom: 50px;
-} */
+}
