@@ -2,57 +2,103 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
+import { Flag, ArrowUpward, ArrowDownward } from '@material-ui/icons/'
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+// import CardHeader from '@material-ui/core/CardHeader';
+import "./DailyCard.css";
 
 const styles = {
-  // card: {
-  //   minWidth: 275,
-  // },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+  
+  root: {
+   padding: 0,
   },
+
+  card: {
+    minWidth: 275,
+  },
+  
   title: {
     fontSize: 14,
-  },
+    textAlign: 'center',
+    // alignItems: 'flex-end',
+    padding: 0,
+    },
+
   pos: {
     marginBottom: 12,
   },
 };
 
+
 function DailyCard(props) {
   const { classes } = props;
-  const bull = <span className={classes.bullet}>•</span>;
-
   return (
-    <Card className={classes.card}>
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Word of the Day
+    <Card className={classes.card} id="card">
+      <CardContent classes={{root: classes.root}.last}>
+        <Grid container spacing={0} id="header">
+          <Grid item xs={4}>
+            <Typography className={classes.title} color="textSecondary" gutterBottom>
+            AM:AM
+          </Typography>
+          </Grid>
+
+
+          <Grid item xs={4}>
+            <Typography className={classes.title} color="textSecondary" gutterBottom>
+            01/01/01
+          </Typography>
+          </Grid>
+
+          <Grid item xs={4}>
+            <Typography className={classes.title} color="textSecondary" gutterBottom>
+            PM:PM
+          </Typography>
+          </Grid>
+        
+        </Grid>
+
+        <div id="headerLine"></div>
+
+        <Typography id="text">
+          <Flag id="icon"/> Daily Highlight
         </Typography>
-        <Typography variant="h5" component="h2">
-          be
-          {bull}
-          nev
-          {bull}o{bull}
-          lent
+
+        <Typography component="p" id="text">
+          <ArrowUpward id="icon"/> Positive
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
+
+        <Typography component="p" id="text">
+          <ArrowDownward id="icon"/> Negative
         </Typography>
-        <Typography component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
+
+<div id="footerLine"></div>
+
+ <Grid id="footer" container spacing={0}>
+ 
+        <Grid item xs={4}>
+          <Typography className={classes.title} color="textSecondary" >
+          1
         </Typography>
+        </Grid>
+
+        <Grid item xs={4}>
+          <Typography className={classes.title} color="textSecondary" >
+          2
+        </Typography>
+        </Grid>
+
+         <Grid item xs={4}>
+          <Typography className={classes.title} color="textSecondary" >
+          3
+        </Typography>
+        </Grid>
+        
+        </Grid>
+
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Card>
   );
 }
